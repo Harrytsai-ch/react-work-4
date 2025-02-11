@@ -36,8 +36,6 @@ function ProductModal({ setIsProductModalOpen, getProductList, modalMode, tempPr
         const file = e.target.files[0];
         const formData = new FormData();
         formData.append('file to upload',file);
-        console.log(formData);
-        
         try {
         const res = await axios.post(`${BASE_URL}/v2/api/${API_PATH}/admin/upload`,formData);
         //上傳ＡＰＩ後會回傳一個url
@@ -290,6 +288,7 @@ function ProductModal({ setIsProductModalOpen, getProductList, modalMode, tempPr
                                     className="form-control"
                                     placeholder="請輸入原價"
                                     value={tempProduct.origin_price}
+                                    min={0}
                                     onChange={inputProductModal}
                                 />
                                 </div>
@@ -303,6 +302,7 @@ function ProductModal({ setIsProductModalOpen, getProductList, modalMode, tempPr
                                     type="number"
                                     className="form-control"
                                     placeholder="請輸入售價"
+                                    min={0}
                                     value={tempProduct.price}
                                     onChange={inputProductModal}
                                 />

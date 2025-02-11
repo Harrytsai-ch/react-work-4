@@ -37,18 +37,18 @@ function DeleteProductModal({setIsDeleteProductModalOpen ,getProductList, id, se
     }
 
     return (
-        <div ref={deleteProductModalRef} className="modal" tabIndex="-1">
+        <div ref={deleteProductModalRef} className="modal" tabIndex="-1" style={{backgroundColor: 'rgba(0, 0, 0, 0.5)'}}>
             <div className="modal-dialog">
                 <div className="modal-content">
                     <div className="modal-header">
                     <h5 className="modal-title">刪除產品</h5>
-                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={closeDeleteProductModal}></button>
                     </div>
                     <div className="modal-body">
                     <p>請確定要刪除嗎？</p>
                     </div>
                     <div className="modal-footer">
-                    <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+                    <button type="button" className="btn btn-secondary" onClick={closeDeleteProductModal}>關閉</button>
                     <button type="button" className="btn btn-primary" onClick={()=> deleteProduct(id)}>確定</button>
                     </div>
                 </div>
